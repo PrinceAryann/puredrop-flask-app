@@ -1,0 +1,150 @@
+{% extends 'base.html' %} {% block title %}PureDrop | Water Quality Analysis &
+Solutions{% endblock %} {% block extra_css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/home.css') }}"
+/>
+{% endblock %} {% block content %}
+<!-- ======================= Hero Section ======================= -->
+<div class="hero text-center text-white">
+  <div class="hero-overlay"></div>
+  <div class="container position-relative">
+    <img
+      class="d-block mx-auto mb-4"
+      src="{{ url_for('static', filename='assets/favicon_io/android-chrome-512x512.png') }}"
+      alt="PureDrop Logo"
+      width="72"
+      height="72"
+    />
+    <h1 class="display-4 fw-bold">Clean Water, Clear Confidence.</h1>
+    <div class="col-lg-8 mx-auto">
+      <p class="lead my-4">
+        Analyze your water's safety by inputting values from your report. Our
+        tool instantly predicts potability, identifies potential health risks,
+        and suggests personalized filtration solutions.
+      </p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a
+          href="{{ url_for('analyze') }}"
+          class="btn btn-primary btn-lg px-4 gap-3"
+        >
+          Analyze My Water
+        </a>
+        <a href="#how-it-works" class="btn btn-outline-light btn-lg px-4">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= How It Works Section ======================= -->
+<section id="how-it-works" class="how-it-works py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">From Data to Diagnosis, Instantly</h2>
+      <p class="lead text-muted">Your 3-step path to water clarity.</p>
+    </div>
+    <div class="row text-center g-4">
+      <!-- Step 1 Card -->
+      <div class="col-md-4">
+        <div class="step-card">
+          <div class="step-icon mb-3">
+            <i class="bi bi-pencil-square fs-2"></i>
+          </div>
+          <h4 class="fw-bold">1. Input Your Data</h4>
+          <p>
+            Enter the values from your water report into our simple and secure
+            form.
+          </p>
+        </div>
+      </div>
+      <!-- Step 2 Card -->
+      <div class="col-md-4">
+        <div class="step-card">
+          <div class="step-icon mb-3">
+            <i class="bi bi-search-heart fs-2"></i>
+          </div>
+          <h4 class="fw-bold">2. Get Instant Analysis</h4>
+          <p>
+            Our model instantly predicts your water's potability and breaks down
+            the results.
+          </p>
+        </div>
+      </div>
+      <!-- Step 3 Card -->
+      <div class="col-md-4">
+        <div class="step-card">
+          <div class="step-icon mb-3">
+            <i class="bi bi-shield-check fs-2"></i>
+          </div>
+          <h4 class="fw-bold">3. Receive Solutions</h4>
+          <p>
+            If issues are found, we provide clear health risk info and suggest
+            the best filtration methods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= Why Choose Us Section ======================= -->
+<section class="why-choose-us py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">A Smarter Approach to Water Safety</h2>
+      <p class="lead text-muted">
+        Leveraging technology for your peace of mind.
+      </p>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center">
+        <img
+          src="{{ url_for('static', filename='assets/glass.jpg') }}"
+          alt="Clean glass of water"
+          class="img-fluid rounded img-small"
+          loading="lazy"
+        />
+      </div>
+      <div class="col-md-6">
+        <ul class="list-unstyled">
+          <li class="d-flex mb-4">
+            <!-- ICONS FIXED HERE -->
+            <i class="bi bi-robot fs-2 text-primary me-4"></i>
+            <div>
+              <h5 class="fw-bold">AI-Powered Predictions</h5>
+              <p class="text-muted mb-0">
+                Our model analyzes complex data to give you an accurate
+                potability assessment in seconds.
+              </p>
+            </div>
+          </li>
+          <li class="d-flex mb-4">
+            <!-- ICONS FIXED HERE -->
+            <i class="bi bi-shield-fill-exclamation fs-2 text-primary me-4"></i>
+            <div>
+              <h5 class="fw-bold">Clear Risk Identification</h5>
+              <p class="text-muted mb-0">
+                We don't just give you data; we translate it into understandable
+                health risks.
+              </p>
+            </div>
+          </li>
+          <li class="d-flex">
+            <!-- ICONS FIXED HERE -->
+            <i class="bi bi-filter-circle fs-2 text-primary me-4"></i>
+            <div>
+              <h5 class="fw-bold">Tailored Solutions</h5>
+              <p class="text-muted mb-0">
+                Get unbiased, effective filtration recommendations based
+                specifically on your water's profile.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

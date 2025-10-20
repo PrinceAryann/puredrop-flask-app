@@ -1,0 +1,207 @@
+{% extends 'base.html' %} {% block title %}Analyze Your Water - PureDrop{%
+endblock %} {% block extra_css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/analyze.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <!-- ======================= RESULTS BLOCK ======================= -->
+      <!-- This entire section only shows up if a result is passed from Flask -->
+      {% if result %}
+      <div
+        class="results-card mb-4 {% if drinkable %}alert-success{% else %}alert-danger{% endif %}"
+      >
+        <h3 class="results-title">Analysis Complete</h3>
+        <p class="results-status">{{ result }}</p>
+
+        {% if risks %}
+        <div class="risks-section">
+          <h5 class="risks-title">Potential Risks Identified:</h5>
+          <ul class="list-group list-group-flush">
+            {% for risk in risks %}
+            <li class="list-group-item">{{ risk }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+      <!-- ======================= END OF RESULTS BLOCK ======================= -->
+
+      <div class="analysis-card">
+        <div class="card-body p-4 p-md-5">
+          <div class="text-center mb-4">
+            <h2 class="card-title fw-bold">Water Quality Analysis Form</h2>
+            <p class="text-muted">
+              Enter the values from your water report below to get an instant
+              analysis.
+            </p>
+          </div>
+
+          <!-- Analysis Form -->
+          <form action="{{ url_for('analyze') }}" method="POST" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="ph" class="form-label">pH Level</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  class="form-control"
+                  id="ph"
+                  name="ph"
+                  placeholder="e.g., 7.4"
+                  value="{{ request.form.get('ph', '') }}"
+                  required
+                />
+                <div class="form-text">
+                  Standard range is typically 6.5 - 8.5.
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="hardness" class="form-label">Hardness</label>
+                <input
+                  type="number"
+                  step="any"
+                  class="form-control"
+                  id="Hardness"
+                  name="hardness"
+                  placeholder="e.g., 150"
+                  value="{{ request.form.get('hardness', '') }}"
+                  required
+                />
+                <div class="form-text">Measured in mg/L.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="solids" class="form-label"
+                  >Total Dissolved Solids (TDS)</label
+                >
+                <input
+                  type="number"
+                  step="any"
+                  class="form-control"
+                  id="Solids"
+                  name="solids"
+                  placeholder="e.g., 350"
+                  value="{{ request.form.get('solids', '') }}"
+                  required
+                />
+                <div class="form-text">Measured in mg/L.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="chloramines" class="form-label">Chloramines</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  class="form-control"
+                  id="Chloramines"
+                  name="chloramines"
+                  placeholder="e.g., 3.5"
+                  value="{{ request.form.get('chloramines', '') }}"
+                  required
+                />
+                <div class="form-text">Measured in ppm or mg/L.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="sulfate" class="form-label">Sulfate</label>
+                <input
+                  type="number"
+                  step="any"
+                  class="form-control"
+                  id="Sulfate"
+                  name="sulfate"
+                  placeholder="e.g., 200"
+                  value="{{ request.form.get('sulfate', '') }}"
+                  required
+                />
+                <div class="form-text">Measured in mg/L.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="conductivity" class="form-label"
+                  >Conductivity</label
+                >
+                <input
+                  type="number"
+                  step="any"
+                  class="form-control"
+                  id="Conductivity"
+                  name="conductivity"
+                  placeholder="e.g., 400"
+                  value="{{ request.form.get('conductivity', '') }}"
+                  required
+                />
+                <div class="form-text">Measured in μS/cm.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="organic_carbon" class="form-label"
+                  >Organic Carbon</label
+                >
+                <input
+                  type="number"
+                  step="0.01"
+                  class="form-control"
+                  id="Organic_Carbon"
+                  name="organic_carbon"
+                  placeholder="e.g., 10.5"
+                  value="{{ request.form.get('organic_carbon', '') }}"
+                  required
+                />
+                <div class="form-text">Measured in ppm or mg/L.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="trihalomethanes" class="form-label"
+                  >Trihalomethanes</label
+                >
+                <input
+                  type="number"
+                  step="0.01"
+                  class="form-control"
+                  id="Trihalomethanes"
+                  name="trihalomethanes"
+                  placeholder="e.g., 50"
+                  value="{{ request.form.get('trihalomethanes', '') }}"
+                  required
+                />
+                <div class="form-text">Measured in μg/L.</div>
+              </div>
+
+              <div class="col-12">
+                <label for="turbidity" class="form-label">Turbidity</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  class="form-control"
+                  id="Turbidity"
+                  name="turbidity"
+                  placeholder="e.g., 4.2"
+                  value="{{ request.form.get('turbidity', '') }}"
+                  required
+                />
+                <div class="form-text">
+                  Measures water clarity, measured in NTU.
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid mt-4">
+              <button type="submit" class="btn btn-primary btn-lg">
+                Get My Results
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

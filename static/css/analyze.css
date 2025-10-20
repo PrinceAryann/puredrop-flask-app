@@ -1,0 +1,147 @@
+/* =======================
+   Analysis Page Styles
+   ======================= */
+
+/* --- Main Analysis Form Card --- */
+.analysis-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 40px rgba(0, 119, 182, 0.08);
+  overflow: hidden; /* Ensures child elements conform to border-radius */
+}
+
+.card-title {
+  color: #1e293b;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #334155;
+}
+
+.form-control {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  transition: all 0.3s ease;
+  background-color: #f8fafc;
+}
+
+.form-control:focus {
+  border-color: #0077b6;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(0, 119, 182, 0.1);
+}
+
+.form-text {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* --- Results Card Styling --- */
+.results-card {
+  padding: 2rem;
+  border-radius: 16px;
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.results-card.alert-success {
+  background: linear-gradient(135deg, #28a745, #218838);
+}
+
+.results-card.alert-danger {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.results-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Add appropriate icon before the title */
+.results-title::before {
+  font-family: "bootstrap-icons";
+  font-size: 1.8rem;
+  margin-right: 0.75rem;
+}
+
+.alert-success .results-title::before {
+  content: "\f26a"; /* Bootstrap icon: check-circle-fill */
+}
+
+.alert-danger .results-title::before {
+  content: "\f690"; /* Bootstrap icon: x-octagon-fill */
+}
+
+.results-status {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 1rem;
+}
+
+.risks-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.risks-section .list-group-item {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  padding: 0.5rem 0;
+}
+
+/* --- Consistent Button Styling --- */
+.btn-primary {
+  background-image: linear-gradient(to right, #0077b6, #00b4d8);
+  border: none;
+  padding: 14px 28px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 25px rgba(0, 180, 216, 0.4);
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+}
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.2);
+}
+.btn-primary:disabled {
+  background-color: #6c757d;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+/* --- Responsive Adjustments --- */
+@media (max-width: 576px) {
+  .analysis-card,
+  .results-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .results-title {
+    font-size: 1.25rem;
+  }
+
+  .results-status {
+    font-size: 1rem;
+  }
+}
+/* =======================
+   End of Analysis Page Styles
+   ======================= */

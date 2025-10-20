@@ -1,0 +1,144 @@
+/* =======================
+   Homepage Specific Styles
+   ======================= */
+
+/* --- Hero Section --- */
+.hero {
+  position: relative;
+  padding: 80px 0;
+  color: #fff;
+  background-color: #1e293b; /* Fallback color */
+  overflow: hidden; /* Crucial for animation containment */
+}
+
+/* Pseudo-element for the background image and animation */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/river.jpg") no-repeat center center;
+  background-size: cover;
+  z-index: 0;
+  animation: hero-zoom 20s ease-out infinite;
+}
+
+/* Keyframe animation for the subtle zoom effect */
+@keyframes hero-zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 50, 90, 0.65);
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero .fw-bold,
+.hero .lead {
+  color: #fff !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Buttons --- */
+.btn-primary {
+  background-image: linear-gradient(to right, #0077b6, #00b4d8);
+  border: none;
+  padding: 12px 28px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 25px rgba(0, 180, 216, 0.4);
+}
+
+.btn-outline-light {
+  border-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: #fff;
+  color: #0077b6;
+}
+
+/* --- How It Works Section --- */
+.step-card {
+  padding: 2rem 1.5rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 119, 182, 0.1);
+}
+
+.step-icon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #ebf4fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0077b6;
+  transition: all 0.3s ease;
+}
+
+.step-card:hover .step-icon {
+  background-color: #0077b6;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* --- Why Choose Us Section --- */
+.why-choose-us .img-fluid {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Restored rule to shrink the image */
+.why-choose-us .img-small {
+  max-width: 60%; /* Adjusted for better visual balance */
+  height: auto;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+.why-choose-us .img-fluid:hover {
+  transform: scale(1.03);
+}
+
+.why-choose-us .d-flex {
+  transition: background-color 0.3s ease;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.why-choose-us .d-flex:hover {
+  background-color: #e9ecef;
+}
