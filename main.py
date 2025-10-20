@@ -35,7 +35,7 @@ class WaterQualityNet(nn.Module):
         return self.network(x)
 
 # --- 2. LOAD THE PYTORCH MODEL ---
-model_path = os.path.join('Model', 'water_quality_prediction.pth')
+model_path = os.path.join('model', 'water_quality_prediction.pth')
 
 # Instantiate the CORRECT model structure
 model = WaterQualityNet()
