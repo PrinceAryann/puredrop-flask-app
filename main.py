@@ -37,9 +37,9 @@ try:
     # Model Path (lowercase 'model' directory)
     model_path = os.path.join('model', 'water_quality_pytorch_model.pth')
     
-    # Scaler Paths (assuming they are saved in the root directory)
-    scaler_x_path = 'scaler_X.pkl'
-    scaler_y_path = 'scaler_y.pkl'
+    # Scaler Paths (assuming they are saved in the model directory)
+    scaler_x_path = r'model\scaler_X.pkl'
+    scaler_y_path = r'model\scaler_y.pkl'
 
     # Instantiate the model structure
     # We need to know the number of input features expected by the model
