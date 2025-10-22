@@ -203,5 +203,5 @@ def internal_error(error):
 # ---------------------------------------------------------------------------
 # Entry Point (Development only)
 # ---------------------------------------------------------------------------
-# if __name__ == "__main__":
-#     app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
